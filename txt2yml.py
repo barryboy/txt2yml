@@ -163,7 +163,7 @@ def handle_file(filename, outdir):
     for i in range(n_utterances):
          line = data[i]
          party, content = split_party_content(line)
-         steps += "\n        - step: {0}\n          p: {1}\n          u: {2}".format(i+1, party, content)
+         steps += "\n        - step: {0}\n          p: {1}\n          u: \"{2}\"".format(i+1, party, content)
     whole_txt = frontmatter + steps + footer
     save_yml(whole_txt, outdir, filename)
 
