@@ -156,14 +156,14 @@ def handle_file(filename, outdir):
     data = trim_data(data)
     data, fline = extract_fline(data)
     frontmatter = "---\ntitle: {0}\ncontent:".format(fline)
-    footer = "\n---"
+    footer = "\n...\n"
     data = purge_malformed_lines(data)
     n_utterances = len(data)
     steps = ""
     for i in range(n_utterances):
          line = data[i]
          party, content = split_party_content(line)
-         steps += "\n\t- step: {0}\n\t p: {1}\n\t u: {2}".format(i,party,content)
+         steps += "\n        - step: {0}\n          p: {1}\n          u: {2}".format(i+1, party, content)
     whole_txt = frontmatter + steps + footer
     save_yml(whole_txt, outdir, filename)
 
