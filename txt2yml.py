@@ -58,7 +58,7 @@ def handle_dir(dirname, out):
         converted = handle_file(os.path.join(dirname, f), out)
 
 def read_from_file(filename):
-    """Tries to read text file using UTF-8 encoding. In case of failure tries again with ISO-8859-1.
+    """Tries to read text file using UTF-8 encoding. In case of failure tries again with Windows-1250.
 
     Positional arguments:
     filename -- the file to read in
@@ -70,13 +70,13 @@ def read_from_file(filename):
         try:
             data = f.readlines()
         except:
-            print("------ could not read file in UTF-8 format, switching to ISO-8859-1")
+            print("------ could not read file in UTF-8 format, switching to Windows-1250")
             try:
-                print("------ trying ISO-8859-1")
-                f2 = open(filename, "r", encoding = "iso-8859-1")
+                print("------ trying Windows-1250")
+                f2 = open(filename, "r", encoding = "windows-1250")
                 data = f2.readlines()
             except:
-                print("------ could not read file in ISO-8859-1 format. ABORTING")
+                print("------ could not read file in Windows-1250 format. ABORTING")
             finally:
                 f2.close()
     except:
