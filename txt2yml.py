@@ -155,7 +155,7 @@ def handle_file(filename, outdir):
     data = read_from_file(filename)
     data = trim_data(data)
     data, fline = extract_fline(data)
-    frontmatter = "---\ntitle: {0}\ncontent:".format(fline)
+    frontmatter = "---\ntitle: \"{0}\"\ncontent:".format(fline)
     footer = "\n...\n"
     data = purge_malformed_lines(data)
     n_utterances = len(data)
